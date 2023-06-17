@@ -17,9 +17,10 @@ public class HomeController : Controller
         _client = client;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var posts = await _client.GetEntries<BlogPost>();
+        return View(posts);
     }
 
     public IActionResult Privacy()
