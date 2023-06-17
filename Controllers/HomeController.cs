@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using SierraPainters.Models;
+using Contentful.Core;
 
 namespace SierraPainters.Controllers;
 
@@ -8,9 +9,12 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger)
+    private readonly IContentfulClient _client;
+
+    public HomeController(ILogger<HomeController> logger, IContentfulClient client)
     {
         _logger = logger;
+        _client = client;
     }
 
     public IActionResult Index()
