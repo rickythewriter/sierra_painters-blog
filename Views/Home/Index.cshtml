@@ -18,11 +18,13 @@
 <ul>
     @if (postList.Length >= 1)
     {
+        var firstPost = postList[0];
+
         <div class="col-md-9">
-            <h2>@postList[0].Title</h2>
-            <p>ID: @postList[0].Sys.Id</p>
-            <p>@postList[0].Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
-            <contentful-rich-text document="@postList[0].Body"></contentful-rich-text>
+            <h2>@Html.ActionLink(firstPost.Title, "Posts", new { id = firstPost.Slug })</h2>
+            <p>ID: @firstPost.Sys.Id</p>
+            <p>@firstPost.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
+            <contentful-rich-text document="@firstPost.Body"></contentful-rich-text>
         </div>
 
         var postIdx = 1;
@@ -33,13 +35,15 @@
             <div class="row">
                 @for (int i = postIdx; i < postIdx + numColumns; i++)
                 {
+                    var currentPost = postList[i];
+
                     <div class="col-md-3">
                         @if (i < postList.Length)
                         {
-                            <h2>@postList[i].Title</h2>
-                            <p>ID: @postList[i].Sys.Id</p>
-                            <p>@postList[i].Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
-                            <contentful-rich-text document="@postList[i].Body"></contentful-rich-text>
+                            <h2>@Html.ActionLink(currentPost.Title, "Posts", new { id = currentPost.Slug })</h2>
+                            <p>ID: @currentPost.Sys.Id</p>
+                            <p>@currentPost.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
+                            <contentful-rich-text document="@currentPost.Body"></contentful-rich-text>
                         }
                     </div>
                 }
