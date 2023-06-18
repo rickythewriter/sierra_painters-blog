@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SierraPainters.Models;
 using Contentful.Core;
+using Contentful.Core.Search;
 
 namespace SierraPainters.Controllers;
 
@@ -17,9 +18,12 @@ public class HomeController : Controller
         _client = client;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int id=1)
     {
-        var posts = await _client.GetEntries<BlogPost>();
+        var limit = 10;
+        var skip = limit * (id - 1);
+        var builder = QueryBuilder<BlogPost>.New.Skip(skip).Limit(limit);
+        var posts = await _client.GetEntries<BlogPost>(builder);
         return View(posts);
     }
 
