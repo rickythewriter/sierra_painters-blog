@@ -20,6 +20,10 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index(int id=1)
     {
+        // allow view to access page number
+        ViewBag.Id = id;
+
+        // query and pass paginated entries to view
         var limit = 10;
         var skip = limit * (id - 1);
         var builder = QueryBuilder<BlogPost>.New.Skip(skip).Limit(limit);

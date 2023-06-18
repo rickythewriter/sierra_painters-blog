@@ -5,6 +5,11 @@
 @{
     ViewData["Title"] = "Home Page";
     var postList = Model.Items.ToArray();
+    double numPreviewsPerPage = 10;
+    var numPages = Math.Ceiling((double)Model.Total/numPreviewsPerPage);
+    Console.Write("Number of Pages: ");
+    Console.Write(numPages);
+    var currentPage = ViewBag.Id;
 }
 
 <div class="text-center">
@@ -13,7 +18,7 @@
 <ul>
     @if (postList.Length >= 1)
     {
-        <div class="col-md-12">
+        <div class="col-md-9">
             <h2>@postList[0].Title</h2>
             <p>ID: @postList[0].Sys.Id</p>
             <p>@postList[0].Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
@@ -28,7 +33,7 @@
             <div class="row">
                 @for (int i = postIdx; i < postIdx + numColumns; i++)
                 {
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         @if (i < postList.Length)
                         {
                             <h2>@postList[i].Title</h2>
@@ -47,3 +52,69 @@
     }
     </div>
 </ul>
+@if (currentPage > 0 && currentPage <= numPages) // current page within bounds
+{
+    <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center col-md-9">
+        @{
+            int pagesAroundCurrent = 2;
+        }
+
+        @if (currentPage - pagesAroundCurrent > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" href="/home/index/1">1</a>
+            </li>
+        }
+
+        @if (currentPage - pagesAroundCurrent > 2) // there is space between 1 and currentPage - pagesAroundCurrent
+        {
+            <li>
+                <p>...</p>
+            </li>
+        }
+
+        @for (int i = pagesAroundCurrent; i > 0; i--) // pages left of current page
+        {
+            int pageNumber = currentPage - i;
+            if (pageNumber > 0)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/home/index/@pageNumber">@pageNumber</a>
+                </li>
+            }
+        }
+
+        @* current page *@
+        <li class="page-item">
+            <a class="page-link" href="/home/index/@currentPage">@currentPage</a>
+        </li>
+
+        @for (int i = 1; i <= pagesAroundCurrent; i++) // pages right of current page
+        {
+            int pageNumber = currentPage + i;
+            if (pageNumber <= numPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/home/index/@pageNumber">@pageNumber</a>
+                </li>
+            }
+        }
+
+        @if (currentPage + pagesAroundCurrent < numPages - 1) // if there is space between last page and currentPage + pagesAroundCurrent
+        {
+            <li>
+                <p>...</p>
+            </li>
+        }
+
+        @if (currentPage + pagesAroundCurrent < numPages)
+        {
+            <li class="page-item">
+                <a class="page-link" href="/home/index/@numPages">@numPages</a>
+            </li>
+        }
+
+    </ul>
+    </nav>
+}
