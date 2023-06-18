@@ -4,6 +4,7 @@ namespace SierraPainters.Models;
 
 public class BlogPost
 {
+    public SystemProperties Sys { get; set; }
     public string Title { get; set; }
     public Document Body { get; set; }
 }

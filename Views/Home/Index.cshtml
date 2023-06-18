@@ -12,7 +12,8 @@
 <ul>
     @foreach (var post in Model)
     {
-        <li>@post.Title</li>
+        <li>@post.Title - ID: @post.Sys.Id</li>
+        <p>@post.Sys.CreatedAt</p>
         <contentful-rich-text document="@post.Body"></contentful-rich-text>
     }
 </ul>
