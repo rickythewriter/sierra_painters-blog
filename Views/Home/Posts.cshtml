@@ -4,11 +4,23 @@
 
 @{
     ViewData["Title"] = "Post";
-    var post = Model.Items.ToArray()[0];
+    var postList = Model.Items.ToArray();
 }
 
-<div class="text-center">
-    <h1 class="display-4">@post.Title</h1>
-</div>
-<p>@post.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
-<contentful-rich-text document="@post.Body"></contentful-rich-text>
+@if (postList.Length == 1)
+{
+    var post = postList.First();
+
+    <div class="text-center">
+        <h1 class="display-4">@post.Title</h1>
+    </div>
+    <p>@post.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
+    <contentful-rich-text document="@post.Body"></contentful-rich-text>
+} 
+else
+{
+    <p>Sorry, it looks like this post does not exist.</p>
+    <p>Here's the menu, so you can find the post you're looking for:</p>
+    <a href="/home">Blog Posts</a>
+}
+
