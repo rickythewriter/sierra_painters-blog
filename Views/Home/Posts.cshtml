@@ -1,9 +1,14 @@
+@using Contentful.Core.Models;
+
+@model ContentfulCollection<BlogPost>;
+
 @{
     ViewData["Title"] = "Post";
+    var post = Model.Items.ToArray()[0];
 }
 
 <div class="text-center">
-    <h1 class="display-4">@Model.Title</h1>
+    <h1 class="display-4">@post.Title</h1>
 </div>
-<p>@Model.Sys.CreatedAt.ToString("MMMM dd, yyyy")</p>
-<contentful-rich-text document="@Model.Body"></contentful-rich-text>
+<p>@post.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
+<contentful-rich-text document="@post.Body"></contentful-rich-text>
