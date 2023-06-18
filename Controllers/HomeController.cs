@@ -23,6 +23,12 @@ public class HomeController : Controller
         return View(posts);
     }
 
+    public async Task<IActionResult> Posts(string id)
+    {
+        var post = await _client.GetEntry<BlogPost>(id);
+        return View(post);
+    }
+
     public IActionResult Privacy()
     {
         return View();
