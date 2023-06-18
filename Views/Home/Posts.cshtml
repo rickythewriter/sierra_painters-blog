@@ -1,0 +1,13 @@
+@* @using Contentful.Core.Models; *@
+
+@* @model ContentfulCollection<BlogPost>; *@
+
+@{
+    ViewData["Title"] = "Post";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@Model.Title</h1>
+</div>
+<p>@Model.Sys.CreatedAt.ToString("MMMM dd, yyyy")</p>
+<contentful-rich-text document="@Model.Body"></contentful-rich-text>
