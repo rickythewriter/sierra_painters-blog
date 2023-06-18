@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using SierraPainters.Models;
 using Contentful.Core;
+using Contentful.Core.Search;
 
 namespace SierraPainters.Controllers;
 
@@ -25,8 +26,9 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Posts(string id)
     {
-        var post = await _client.GetEntry<BlogPost>(id);
-        return View(post);
+        var queryBuilder = QueryBuilder<BlogPost>.New.ContentTypeIs("blogPost").FieldMatches("fields.slug",id);
+        var posts = await _client.GetEntries<BlogPost>(queryBuilder);
+        return View(posts);
     }
 
     public IActionResult Privacy()
