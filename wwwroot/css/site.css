@@ -73,4 +73,8 @@ body {
   .preview-row {
     width: 100%;
   }
+
+  .small-preview {
+    min-width: 100%;
+  }
 }
