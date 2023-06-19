@@ -13,49 +13,55 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Blog Posts</h1>
+    <h1 id="main-heading" class="display-4">SIERRA PAINTERS BLOG</h1>
+    <hr/>
 </div>
-<ul>
-    @if (postList.Length >= 1)
-    {
-        var firstPost = postList[0];
+@if (postList.Length >= 1)
+{
+    var firstPost = postList[0];
 
-        <div class="col-md-9" style="height: 485px; overflow: hidden;">
-            <h2>@Html.ActionLink(firstPost.Title, "Posts", new { id = firstPost.Slug })</h2>
-            <p>@firstPost.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
+    <div class="col-md-9 post-preview" style="height: 485px; overflow: hidden;">
+        <h2>@Html.ActionLink(firstPost.Title, "Posts", "Home", new {id = firstPost.Slug}, new { @class="preview-header"})</h2>
+        <div style="height: 50%; overflow: hidden;">
             <contentful-rich-text document="@firstPost.Body"></contentful-rich-text>
-            <a>@Html.ActionLink("Read more", "Posts", new { id = firstPost.Slug })</a>
         </div>
-
-        var postIdx = 1;
-        var numColumns = 3;
-
-        @for (int numRows = 1; numRows <= 3; numRows++)
-        {
-            <div class="row">
-                @for (int i = postIdx; i < postIdx + numColumns; i++)
-                {
-                    @if (i < postList.Length)
-                    {
-                        var currentPost = postList[i];
-                        <div class="col-md-3" style="height: 500px; overflow: hidden;">
-                            <h2>@Html.ActionLink(currentPost.Title, "Posts", new { id = currentPost.Slug })</h2>
-                            <p>@currentPost.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
-                            <contentful-rich-text document="@currentPost.Body"></contentful-rich-text>
-                            <a>@Html.ActionLink("Read more", "Posts", new { id = currentPost.Slug })</a>
-                        </div>
-                    }
-                    
-                }
-            </div>
-            postIdx += numColumns;
-        }
-    } else 
-    {
-        <p>No entries here</p>
-    }
+        <div class="read-more">
+            <a>@Html.ActionLink("Read more", "Posts", new {id = firstPost.Slug})</a>
+        </div>
+        
     </div>
-</ul>
+
+    var postIdx = 1;
+    var numColumns = 3;
+
+    @for (int numRows = 1; numRows <= 3; numRows++)
+    {
+        <div class="row preview-row gx-3">
+            @for (int i = postIdx; i < postIdx + numColumns; i++)
+            {
+                @if (i < postList.Length)
+                {
+                    var currentPost = postList[i];
+                    <div class="col-md-3 post-preview" style="height: 500px; overflow: hidden;">
+                        <h2>@Html.ActionLink(currentPost.Title, "Posts", "Home", new {id = currentPost.Slug}, new {@class="preview-header"})</h2>
+                        <p>@currentPost.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
+                        <div style="height: 50%; overflow: hidden;">
+                            <contentful-rich-text document="@currentPost.Body"></contentful-rich-text>
+                        </div>
+                        <div class="read-more">
+                            <a>@Html.ActionLink("Read more", "Posts", new {id = currentPost.Slug})</a>
+                        </div>
+                    </div>
+                }
+                
+            }
+        </div>
+        postIdx += numColumns;
+    }
+} else 
+{
+    <p>No entries here</p>
+}
 @if (currentPage > 0 && currentPage <= numPages) // current page within bounds
 {
     <nav aria-label="Page navigation">

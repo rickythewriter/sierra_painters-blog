@@ -20,3 +20,35 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* My Styles */
+
+#main-heading {
+  color: #6b9d8b;
+  font-size: 32px;
+  font-family: 'Playfair Display', Arial;
+}
+
+.post-preview {
+  border: thin solid #eee;
+  padding: 16px;
+}
+
+.preview-row {
+  margin: 16px 0;
+}
+
+.preview-header {
+  color: #c48e65;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.preview-header:hover {
+  color: #c48e65;
+  text-decoration: underline;
+}
+
+.read-more {
+  padding: 16px 0;
+}
