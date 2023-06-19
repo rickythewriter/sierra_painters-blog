@@ -118,6 +118,32 @@ h2 {
   justify-content: center;
 }
 
+.pagination {
+  gap: 16px;
+}
+
+.page-item:first-child .page-link,
+.page-item:last-child .page-link {
+  border-radius: 0.25rem;
+}
+
+.page-link {
+  background-color: #999;
+  font-weight: bold;
+  color: #fff;
+}
+
+.page-link:hover {
+  background-color: #999;
+  font-weight: bold;
+  color: #fff;
+}
+
+.current-page,
+.current-page:hover {
+  background-color: #000;
+}
+
 @media screen and (width <= 768px) {
   .preview-row {
     width: 100%;
