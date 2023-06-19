@@ -43,8 +43,14 @@ h2 {
   padding: 16px;
 }
 
+.top-preview {
+  height: 485px; overflow: hidden;
+}
+
 .small-preview {
   max-width: calc(33.3% - 11px);
+  height: 500px;
+  overflow: hidden;
 }
 
 .preview-row {
@@ -97,5 +103,15 @@ h2 {
 
   .small-preview {
     min-width: 100%;
+  }
+
+  .post-preview {
+    height: 440px;
+    overflow: hidden;
+  }
+
+  .post-body-preview {
+    height: 339px; 
+    overflow: hidden;
   }
 }
