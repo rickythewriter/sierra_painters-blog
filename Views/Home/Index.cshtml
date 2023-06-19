@@ -25,8 +25,8 @@
         <div style="height: 50%; overflow: hidden;">
             <contentful-rich-text document="@firstPost.Body"></contentful-rich-text>
         </div>
-        <div class="read-more">
-            <a>@Html.ActionLink("Read more", "Posts", new {id = firstPost.Slug})</a>
+        <div class="read-more-container">
+            <a>@Html.ActionLink("Read more ...", "Posts", "Home", new {id = firstPost.Slug}, new { @class="read-more-text"})</a>
         </div>
         
     </div>
@@ -40,8 +40,8 @@
                 <div style="height: 50%; overflow: hidden;">
                     <contentful-rich-text document="@currentPost.Body"></contentful-rich-text>
                 </div>
-                <div class="read-more">
-                    <a>@Html.ActionLink("Read more", "Posts", new {id = currentPost.Slug})</a>
+                <div class="read-more-container">
+                    <a>@Html.ActionLink("Read more ...", "Posts", "Home", new {id = currentPost.Slug}, new { @class="read-more-text"})</a>
                 </div>
             </div>
         }

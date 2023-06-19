@@ -75,8 +75,13 @@ h2 {
   text-decoration: underline;
 }
 
-.read-more {
+.read-more-container {
   padding: 16px 0;
+}
+
+.read-more-text {
+  text-decoration: none;
+  color: #886939;
 }
 
 @media screen and (width <= 768px) {
