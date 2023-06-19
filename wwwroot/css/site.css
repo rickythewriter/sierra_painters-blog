@@ -35,7 +35,9 @@ body {
 }
 
 .preview-row {
+  width: 75%;
   margin: 16px 0;
+  gap: 16px;
 }
 
 .preview-header {
