@@ -23,6 +23,8 @@ body {
 
 /* My Styles */
 
+/* Global */
+
 h3, h4, h5, h6 {
   color: #c48e65;
 }
@@ -30,8 +32,10 @@ h3, h4, h5, h6 {
 h2 {
   color: #c48e65;
   font-size: 17px;
+  font-weight: 700;
 }
 
+/* Home */
 #main-heading {
   color: #6b9d8b;
   font-size: 32px;
@@ -114,4 +118,11 @@ h2 {
     height: 339px; 
     overflow: hidden;
   }
+}
+
+/* Post */
+
+#post-title {
+  font-size: 22px;
+  font-weight: 700;
 }

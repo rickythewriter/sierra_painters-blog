@@ -11,9 +11,7 @@
 {
     var post = postList.First();
 
-    <div class="text-center">
-        <h1 class="display-4">@post.Title</h1>
-    </div>
+    <h2 id="post-title">@post.Title</h2>
     <p>@post.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
     <contentful-rich-text document="@post.Body"></contentful-rich-text>
 } 
