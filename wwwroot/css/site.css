@@ -126,3 +126,11 @@ h2 {
   font-size: 22px;
   font-weight: 700;
 }
+
+#post-body {
+  max-width: 100%;
+}
+
+#post-body img {
+  max-width: 100%;
+}

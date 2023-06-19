@@ -18,7 +18,9 @@
 
         <h2 id="post-title">@post.Title</h2>
         <p>@post.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
-        <contentful-rich-text document="@post.Body"></contentful-rich-text>
+        <div id="post-body">
+            <contentful-rich-text document="@post.Body"></contentful-rich-text>
+        </div>
     } 
     else
     {
