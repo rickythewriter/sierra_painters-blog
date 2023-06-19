@@ -11,18 +11,19 @@
     <h1 id="main-heading" class="display-4">SIERRA PAINTERS BLOG</h1>
     <hr />
 </div>
-@if (postList.Length == 1)
-{
-    var post = postList.First();
+<div id="post-column" class="col-md-8">
+    @if (postList.Length == 1)
+    {
+        var post = postList.First();
 
-    <h2 id="post-title">@post.Title</h2>
-    <p>@post.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
-    <contentful-rich-text document="@post.Body"></contentful-rich-text>
-} 
-else
-{
-    <p>Sorry, it looks like this post does not exist.</p>
-    <p>Here's the menu, so you can find the post you're looking for:</p>
-    <a href="/home">Blog Posts</a>
-}
-
+        <h2 id="post-title">@post.Title</h2>
+        <p>@post.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
+        <contentful-rich-text document="@post.Body"></contentful-rich-text>
+    } 
+    else
+    {
+        <p>Sorry, it looks like this post does not exist.</p>
+        <p>Here's the menu, so you can find the post you're looking for:</p>
+        <a href="/home">Blog Posts</a>
+    }
+</div>
