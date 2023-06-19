@@ -21,7 +21,7 @@
     var firstPost = postList[0];
 
     <div class="col-md-9 post-preview" style="height: 485px; overflow: hidden;">
-        <h2>@Html.ActionLink(firstPost.Title, "Posts", "Home", new {id = firstPost.Slug}, new { @class="preview-header"})</h2>
+        <h2 class="ellipsis-one-line">@Html.ActionLink(firstPost.Title, "Posts", "Home", new {id = firstPost.Slug}, new { @class="preview-header top-preview-header"})</h2>
         <div style="height: 50%; overflow: hidden;">
             <contentful-rich-text document="@firstPost.Body"></contentful-rich-text>
         </div>
@@ -36,14 +36,15 @@
 
     @for (int numRows = 1; numRows <= 3; numRows++)
     {
-        <div class="row preview-row gx-3">
+        <div class="row preview-row">
             @for (int i = postIdx; i < postIdx + numColumns; i++)
             {
                 @if (i < postList.Length)
                 {
                     var currentPost = postList[i];
-                    <div class="col-md-3 post-preview" style="height: 500px; overflow: hidden;">
-                        <h2>@Html.ActionLink(currentPost.Title, "Posts", "Home", new {id = currentPost.Slug}, new {@class="preview-header"})</h2>
+                    <div class="col post-preview" style="height: 500px; overflow: hidden;">
+                        <h2 class="ellipsis-one-line">@Html.ActionLink(currentPost.Title, "Posts", "Home", new {id = currentPost.Slug},
+            new {@class="preview-header"})</h2>
                         <p>@currentPost.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
                         <div style="height: 50%; overflow: hidden;">
                             <contentful-rich-text document="@currentPost.Body"></contentful-rich-text>
