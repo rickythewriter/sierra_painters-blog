@@ -70,7 +70,7 @@
 </div>
 @if (currentPage > 0 && currentPage <= numPages) // current page within bounds
 {
-    <nav aria-label="Page navigation">
+    <nav id="page-nav" aria-label="Page navigation">
     <ul class="pagination justify-content-center col-md-9">
         @{
             int pagesAroundCurrent = 2;
