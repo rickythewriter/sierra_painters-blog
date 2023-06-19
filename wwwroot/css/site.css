@@ -34,6 +34,10 @@ body {
   padding: 16px;
 }
 
+.small-preview {
+  max-width: calc(33.3% - 11px);
+}
+
 .preview-row {
   width: 66.7%;
   margin: 16px 0;
