@@ -43,8 +43,7 @@
                 {
                     var currentPost = postList[i];
                     <div class="col post-preview" style="height: 500px; overflow: hidden;">
-                        <h2 class="ellipsis-one-line">@Html.ActionLink(currentPost.Title, "Posts", "Home", new {id = currentPost.Slug},
-            new {@class="preview-header"})</h2>
+                        <h2 class="ellipsis-one-line">@Html.ActionLink(currentPost.Title, "Posts", "Home", new {id = currentPost.Slug}, new {@class="preview-header"})</h2>
                         <p>@currentPost.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
                         <div style="height: 50%; overflow: hidden;">
                             <contentful-rich-text document="@currentPost.Body"></contentful-rich-text>

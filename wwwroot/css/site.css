@@ -64,3 +64,9 @@ body {
 .read-more {
   padding: 16px 0;
 }
+
+@media screen and (width <= 768px) {
+  .preview-row {
+    width: 100%;
+  }
+}
