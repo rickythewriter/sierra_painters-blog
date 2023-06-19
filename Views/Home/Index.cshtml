@@ -36,7 +36,7 @@
             var currentPost = postList[i];
             <div class="col post-preview small-preview" style="height: 500px; overflow: hidden;">
                 <h2 class="ellipsis-one-line">@Html.ActionLink(currentPost.Title, "Posts", "Home", new {id = currentPost.Slug}, new {@class="preview-header"})</h2>
-                <div style="height: 50%; overflow: hidden;">
+                <div class="post-body-preview">
                     <contentful-rich-text document="@currentPost.Body"></contentful-rich-text>
                 </div>
                 <div class="read-more-container">
