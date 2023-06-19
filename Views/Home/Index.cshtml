@@ -20,7 +20,7 @@
 {
     var firstPost = postList[0];
 
-    <div class="col-md-9 post-preview" style="height: 485px; overflow: hidden;">
+    <div class="col-md-8 post-preview" style="height: 485px; overflow: hidden;">
         <h2 class="ellipsis-one-line">@Html.ActionLink(firstPost.Title, "Posts", "Home", new {id = firstPost.Slug}, new { @class="preview-header top-preview-header"})</h2>
         <div style="height: 50%; overflow: hidden;">
             <contentful-rich-text document="@firstPost.Body"></contentful-rich-text>
