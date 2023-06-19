@@ -11,21 +11,32 @@
     <h1 id="main-heading" class="display-4">SIERRA PAINTERS BLOG</h1>
     <hr />
 </div>
-<div id="post-column" class="col-md-8">
-    @if (postList.Length == 1)
-    {
-        var post = postList.First();
+<div class="row">
+    <div id="post-column" class="col-md-8 col-md-pull-4">
+        @if (postList.Length == 1)
+        {
+            var post = postList.First();
 
-        <h2 id="post-title">@post.Title</h2>
-        <p>@post.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
-        <div id="post-body">
-            <contentful-rich-text document="@post.Body"></contentful-rich-text>
+            <h2 id="post-title">@post.Title</h2>
+            <p>@post.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
+            <div id="post-body">
+                <contentful-rich-text document="@post.Body"></contentful-rich-text>
+            </div>
+        } 
+        else
+        {
+            <p>Sorry, it looks like this post does not exist.</p>
+            <p>Here's the menu, so you can find the post you're looking for:</p>
+            <a href="/home">Blog Posts</a>
+        }
+    </div>
+    <div class="col-md-4 col-md-push-8 desktop-only newsletter-form">
+        <div data-form-id='fb9f48ed-dd0e-ee11-8f6c-000d3a8e1b7c'
+            data-form-api-url='https://public-usa.mkt.dynamics.com/api/v1.0/orgs/3f91a3b3-ca0e-ee11-a66d-000d3a106802/landingpageforms'
+            data-cached-form-url='https://assets-usa.mkt.dynamics.com/3f91a3b3-ca0e-ee11-a66d-000d3a106802/digitalassets/forms/fb9f48ed-dd0e-ee11-8f6c-000d3a8e1b7c'>
         </div>
-    } 
-    else
-    {
-        <p>Sorry, it looks like this post does not exist.</p>
-        <p>Here's the menu, so you can find the post you're looking for:</p>
-        <a href="/home">Blog Posts</a>
-    }
+        <script
+            src='https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/global/FormLoader/FormLoader.bundle.js'>
+        </script>
+    </div>
 </div>

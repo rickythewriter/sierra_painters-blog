@@ -16,39 +16,58 @@
     <h1 id="main-heading" class="display-4">SIERRA PAINTERS BLOG</h1>
     <hr/>
 </div>
-@if (postList.Length >= 1)
-{
-    var firstPost = postList[0];
-
-    <div class="col-md-8 post-preview top-preview">
-        <h2 class="ellipsis-one-line">@Html.ActionLink(firstPost.Title, "Posts", "Home", new {id = firstPost.Slug}, new { @class="preview-header top-preview-header"})</h2>
-        <div class="post-body-preview">
-            <contentful-rich-text document="@firstPost.Body"></contentful-rich-text>
-        </div>
-        <div class="read-more-container">
-            <a>@Html.ActionLink("Read more ...", "Posts", "Home", new {id = firstPost.Slug}, new { @class="read-more-text"})</a>
-        </div>
-        
-    </div>
-    <div class="row row-cols-3 preview-row">
-        @for (int i = 1; i < postList.Length; i++)
+<div class="row">
+    <div class="col-md-8 col-md-pull-4">
+        @if (postList.Length >= 1)
         {
-            var currentPost = postList[i];
-            <div class="col post-preview small-preview">
-                <h2 class="ellipsis-one-line">@Html.ActionLink(currentPost.Title, "Posts", "Home", new {id = currentPost.Slug}, new {@class="preview-header"})</h2>
+            var firstPost = postList[0];
+
+            <div class="post-preview top-preview">
+                <h2 class="ellipsis-one-line">@Html.ActionLink(firstPost.Title, "Posts", "Home", new {id = firstPost.Slug},
+                new
+                { @class="preview-header top-preview-header"})</h2>
                 <div class="post-body-preview">
-                    <contentful-rich-text document="@currentPost.Body"></contentful-rich-text>
+                    <contentful-rich-text document="@firstPost.Body"></contentful-rich-text>
                 </div>
                 <div class="read-more-container">
-                    <a>@Html.ActionLink("Read more ...", "Posts", "Home", new {id = currentPost.Slug}, new { @class="read-more-text"})</a>
+                    <a>@Html.ActionLink("Read more ...", "Posts", "Home", new {id = firstPost.Slug}, new {
+                    @class="read-more-text"})</a>
                 </div>
+
+            </div>
+            <div class="row row-cols-3 preview-row">
+                @for (int i = 1; i < postList.Length; i++)
+                {
+                    var currentPost = postList[i];
+                    <div class="col post-preview small-preview">
+                        <h2 class="ellipsis-one-line">@Html.ActionLink(currentPost.Title, "Posts", "Home", new {id =
+                    currentPost.Slug}, new {@class="preview-header"})</h2>
+                        <div class="post-body-preview">
+                            <contentful-rich-text document="@currentPost.Body"></contentful-rich-text>
+                        </div>
+                        <div class="read-more-container">
+                            <a>@Html.ActionLink("Read more ...", "Posts", "Home", new {id = currentPost.Slug}, new {
+                        @class="read-more-text"})</a>
+                        </div>
+                    </div>
+                }
             </div>
         }
+        else
+        {
+            <p>No entries here</p>
+        }
     </div>
-} else 
-{
-    <p>No entries here</p>
-}
+    <div class="col-md-4 col-md-push-8 desktop-only newsletter-form">
+        <div data-form-id='fb9f48ed-dd0e-ee11-8f6c-000d3a8e1b7c'
+            data-form-api-url='https://public-usa.mkt.dynamics.com/api/v1.0/orgs/3f91a3b3-ca0e-ee11-a66d-000d3a106802/landingpageforms'
+            data-cached-form-url='https://assets-usa.mkt.dynamics.com/3f91a3b3-ca0e-ee11-a66d-000d3a106802/digitalassets/forms/fb9f48ed-dd0e-ee11-8f6c-000d3a8e1b7c'>
+        </div>
+        <script
+            src='https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/global/FormLoader/FormLoader.bundle.js'>
+        </script>
+    </div>
+</div>
 @if (currentPage > 0 && currentPage <= numPages) // current page within bounds
 {
     <nav aria-label="Page navigation">
