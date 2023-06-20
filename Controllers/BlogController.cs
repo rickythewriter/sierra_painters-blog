@@ -20,6 +20,12 @@ public class BlogController : Controller
 
     public async Task<IActionResult> Index(int id=1)
     {
+        // error handling: page numbers below range
+        if (id < 1) {
+            // redirect to page 1
+            return RedirectToAction("Index", new {id = 1});
+        }
+
         // allow view to access page number
         ViewBag.Id = id;
 
