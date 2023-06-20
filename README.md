@@ -1,6 +1,6 @@
 # Sierra Painters Blog
 
-Website: [Pending](https://www.rickythang.com)
+Website: [https://sierrapainters.azurewebsites.net/](https://sierrapainters.azurewebsites.net/)
 
 ## What is the Sierra Painters Blog?
 
@@ -18,26 +18,30 @@ This is a sample marketing blog that uses the Contentful API to populate its pos
 
 ## Features
 
+![home](https://github.com/rickythewriter/sierra_painters-blog/blob/master/docs/images/home.png?raw=true)
+
 ### Contentful CMS
 
 Uses Contentful API's (Content Delivery API, Images API) to populate views, such as the home and post pages.
+
+![post](https://github.com/rickythewriter/sierra_painters-blog/blob/master/docs/images/post-sample.png?raw=true)
+
+*Sample post* 
 
 ### Microsoft Dynamics 365 Marketing
 
 Integrated newsletter form to capture leads for mailing list.
 
-## Installation
+![marketing](https://github.com/rickythewriter/sierra_painters-blog/blob/master/docs/images/marketing.png?raw=true)
 
-Coming Soon
+*Note: The form doesn't show on the live site, as Dynamics 365 Marketing forms require domain authentication (a paid service) in order to be hosted externally.*
 
-## Cool Code Snippets
+### Responsive Design
 
-Coming Soon
+![responsive](https://github.com/rickythewriter/sierra_painters-blog/blob/master/docs/images/responsive.png?raw=true)
 
 ## Creator - Ricky Thang
 
 - [GitHub](https://github.com/rickythewriter)
 - [Portfolio](rickythang.com)
 - [LinkedIn](https://www.linkedin.com/in/ricky-thang-88307a100)
-
-
