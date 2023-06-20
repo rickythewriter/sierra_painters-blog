@@ -305,6 +305,7 @@ footer {
 #post-body h5,
 #post-body h6 {
   font-size: 17px;
+  font-weight: bold;
 }
 
 #post-body p {
