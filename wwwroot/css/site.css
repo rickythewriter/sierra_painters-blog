@@ -61,6 +61,34 @@ body {
   }
 }
 
+/* Footer */
+
+footer {
+  text-align: center;
+}
+
+@media screen and (width > 768px) {
+  footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer .container{
+    margin: 16px;
+  }
+
+  footer div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    justify-self: center;
+  }
+}
+
 /* Global */
 
 h3, h4, h5, h6 {
