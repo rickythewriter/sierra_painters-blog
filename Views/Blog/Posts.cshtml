@@ -16,6 +16,7 @@
         @if (postList.Length == 1)
         {
             var post = postList.First();
+            ViewData["Title"] = post.Title;
 
             <h2 id="post-title">@post.Title</h2>
             <div id="date-container">
