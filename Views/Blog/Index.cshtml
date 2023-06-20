@@ -6,10 +6,10 @@
     ViewData["Title"] = "Blog";
     var postList = Model.Items.ToArray();
     double numPreviewsPerPage = ViewBag.limit;
-    var numPages = Math.Ceiling((double)Model.Total/numPreviewsPerPage);
+    double numPages = Math.Ceiling((double)Model.Total/numPreviewsPerPage);
     @* Console.Write("Number of Pages: "); *@
     @* Console.Write(numPages); *@
-    var currentPage = ViewBag.Id;
+    int currentPage = ViewBag.Id;
 }
 
 <div class="text-center">
