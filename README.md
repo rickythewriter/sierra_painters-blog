@@ -2,6 +2,8 @@
 
 Website: [https://sierrapainters.azurewebsites.net/](https://sierrapainters.azurewebsites.net/)
 
+![home](https://github.com/rickythewriter/sierra_painters-blog/blob/master/docs/images/home.png?raw=true)
+
 ## What is the Sierra Painters Blog?
 
 This is a sample marketing blog that uses the Contentful API to populate its posts, and Microsoft Dynamics 365 to capture leads for a mailing list.
@@ -17,8 +19,6 @@ This is a sample marketing blog that uses the Contentful API to populate its pos
 - Azure
 
 ## Features
-
-![home](https://github.com/rickythewriter/sierra_painters-blog/blob/master/docs/images/home.png?raw=true)
 
 ### Contentful CMS
 
