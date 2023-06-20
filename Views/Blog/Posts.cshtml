@@ -20,7 +20,14 @@
 
             <h2 id="post-title">@post.Title</h2>
             <div id="date-container">
-                <p>@post.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
+                @if (post.Sys.CreatedAt != null)
+                {
+                    <p>@post.Sys.CreatedAt.Value.ToString("MMMM dd, yyyy")</p>
+                }
+                else
+                {
+                    <p>Date Unavailable</p>
+                }
             </div>
             <div id="post-body">
                 <contentful-rich-text document="@post.Body"></contentful-rich-text>
