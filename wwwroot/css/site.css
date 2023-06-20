@@ -278,6 +278,10 @@ h2 {
   padding: 4px 8px;
 }
 
+#date-container p {
+  font-size: 12px;
+}
+
 #post-title {
   font-size: 22px;
   font-weight: 700;
