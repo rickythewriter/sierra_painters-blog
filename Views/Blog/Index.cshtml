@@ -27,7 +27,7 @@
                     <contentful-image url="@firstPost.MainImage.File.Url" />
                 </div>  
                 <div class="post-preview-content">
-                    <h2 class="ellipsis-one-line">@Html.ActionLink(firstPost.Title, "Posts", "Home", new {id =
+                    <h2 class="ellipsis-one-line">@Html.ActionLink(firstPost.Title, "Posts", "Blog", new {id =
                     firstPost.Slug},
                     new
                     { @class="preview-header top-preview-header"})</h2>
@@ -35,7 +35,7 @@
                         <contentful-rich-text document="@firstPost.Body"></contentful-rich-text>
                     </div>
                     <div class="read-more-container">
-                        <a>@Html.ActionLink("Read more ...", "Posts", "Home", new {id = firstPost.Slug}, new {
+                        <a>@Html.ActionLink("Read more ...", "Posts", "Blog", new {id = firstPost.Slug}, new {
                         @class="read-more-text"})</a>
                     </div>
                 </div>
@@ -49,14 +49,14 @@
                             <contentful-image url="@currentPost.MainImage.File.Url" />
                         </div>
                         <div class="post-preview-content">
-                            <h2 class="ellipsis-one-line">@Html.ActionLink(currentPost.Title, "Posts", "Home", new
+                            <h2 class="ellipsis-one-line">@Html.ActionLink(currentPost.Title, "Posts", "Blog", new
                         {id =
                         currentPost.Slug}, new {@class="preview-header"})</h2>
                             <div class=" post-body-preview">
                                 <contentful-rich-text document="@currentPost.Body"></contentful-rich-text>
                             </div>
                             <div class="read-more-container">
-                                <a>@Html.ActionLink("Read more ...", "Posts", "Home", new {id = currentPost.Slug}, new {
+                                <a>@Html.ActionLink("Read more ...", "Posts", "Blog", new {id = currentPost.Slug}, new {
                             @class="read-more-text"})</a>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
         @if (currentPage - pagesAroundCurrent > 1)
         {
             <li class="page-item">
-                <a class="page-link" href="/home/index/1">1</a>
+                <a class="page-link" href="/blog/index/1">1</a>
             </li>
         }
 
@@ -107,14 +107,14 @@
             if (pageNumber > 0)
             {
                 <li class="page-item">
-                    <a class="page-link" href="/home/index/@pageNumber">@pageNumber</a>
+                    <a class="page-link" href="/blog/index/@pageNumber">@pageNumber</a>
                 </li>
             }
         }
 
         @* current page *@
         <li class="page-item">
-            <a class="page-link current-page" href="/home/index/@currentPage">@currentPage</a>
+            <a class="page-link current-page" href="/blog/index/@currentPage">@currentPage</a>
         </li>
 
         @for (int i = 1; i <= pagesAroundCurrent; i++) // pages right of current page
@@ -123,7 +123,7 @@
             if (pageNumber <= numPages)
             {
                 <li class="page-item">
-                    <a class="page-link" href="/home/index/@pageNumber">@pageNumber</a>
+                    <a class="page-link" href="/blog/index/@pageNumber">@pageNumber</a>
                 </li>
             }
         }
@@ -138,7 +138,7 @@
         @if (currentPage + pagesAroundCurrent < numPages)
         {
             <li class="page-item">
-                <a class="page-link" href="/home/index/@numPages">@numPages</a>
+                <a class="page-link" href="/blog/index/@numPages">@numPages</a>
             </li>
         }
 

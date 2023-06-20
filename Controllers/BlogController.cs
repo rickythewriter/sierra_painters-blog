@@ -6,13 +6,13 @@ using Contentful.Core.Search;
 
 namespace SierraPainters.Controllers;
 
-public class HomeController : Controller
+public class BlogController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly ILogger<BlogController> _logger;
 
     private readonly IContentfulClient _client;
 
-    public HomeController(ILogger<HomeController> logger, IContentfulClient client)
+    public BlogController(ILogger<BlogController> logger, IContentfulClient client)
     {
         _logger = logger;
         _client = client;
