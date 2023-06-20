@@ -5,7 +5,7 @@
 @{
     ViewData["Title"] = "Home Page";
     var postList = Model.Items.ToArray();
-    double numPreviewsPerPage = 10;
+    double numPreviewsPerPage = ViewBag.limit;
     var numPages = Math.Ceiling((double)Model.Total/numPreviewsPerPage);
     @* Console.Write("Number of Pages: "); *@
     @* Console.Write(numPages); *@

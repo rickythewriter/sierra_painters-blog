@@ -25,6 +25,7 @@ public class HomeController : Controller
 
         // query and pass paginated entries to view
         var limit = 10;
+        ViewBag.Limit = limit; // allow view to access limit
         var skip = limit * (id - 1);
         var builder = QueryBuilder<BlogPost>.New.Skip(skip).Limit(limit);
         var posts = await _client.GetEntries<BlogPost>(builder);
