@@ -1,8 +1,147 @@
-﻿@{
+﻿@using Contentful.Core.Models;
+
+@model ContentfulCollection<BlogPost>;
+
+@{
     ViewData["Title"] = "Home Page";
+    var postList = Model.Items.ToArray();
+    double numPreviewsPerPage = ViewBag.limit;
+    var numPages = Math.Ceiling((double)Model.Total/numPreviewsPerPage);
+    @* Console.Write("Number of Pages: "); *@
+    @* Console.Write(numPages); *@
+    var currentPage = ViewBag.Id;
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 id="main-heading" class="display-4">SIERRA PAINTERS BLOG</h1>
+    <hr/>
 </div>
+<div class="row">
+    <div class="col-md-8 col-md-pull-4">
+        @if (postList.Length >= 1)
+        {
+            var firstPost = postList[0];
+
+            <div class="post-preview top-preview">
+                <div class="preview-image-container preview-image-container-big">
+                    <contentful-image url="@firstPost.MainImage.File.Url" />
+                </div>  
+                <div class="post-preview-content">
+                    <h2 class="ellipsis-one-line">@Html.ActionLink(firstPost.Title, "Posts", "Home", new {id =
+                    firstPost.Slug},
+                    new
+                    { @class="preview-header top-preview-header"})</h2>
+                    <div class="post-body-preview post-body-preview-top">
+                        <contentful-rich-text document="@firstPost.Body"></contentful-rich-text>
+                    </div>
+                    <div class="read-more-container">
+                        <a>@Html.ActionLink("Read more ...", "Posts", "Home", new {id = firstPost.Slug}, new {
+                        @class="read-more-text"})</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-3 preview-row">
+                @for (int i = 1; i < postList.Length; i++)
+                {
+                    var currentPost = postList[i];
+                    <div class="col post-preview small-preview">
+                        <div class="preview-image-container preview-image-container-small">
+                            <contentful-image url="@currentPost.MainImage.File.Url" />
+                        </div>
+                        <div class="post-preview-content">
+                            <h2 class="ellipsis-one-line">@Html.ActionLink(currentPost.Title, "Posts", "Home", new
+                        {id =
+                        currentPost.Slug}, new {@class="preview-header"})</h2>
+                            <div class=" post-body-preview">
+                                <contentful-rich-text document="@currentPost.Body"></contentful-rich-text>
+                            </div>
+                            <div class="read-more-container">
+                                <a>@Html.ActionLink("Read more ...", "Posts", "Home", new {id = currentPost.Slug}, new {
+                            @class="read-more-text"})</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <p>No entries here</p>
+        }
+    </div>
+    <div class="col-md-4 col-md-push-8 desktop-only newsletter-form">
+        <div data-form-id='fb9f48ed-dd0e-ee11-8f6c-000d3a8e1b7c'
+            data-form-api-url='https://public-usa.mkt.dynamics.com/api/v1.0/orgs/3f91a3b3-ca0e-ee11-a66d-000d3a106802/landingpageforms'
+            data-cached-form-url='https://assets-usa.mkt.dynamics.com/3f91a3b3-ca0e-ee11-a66d-000d3a106802/digitalassets/forms/fb9f48ed-dd0e-ee11-8f6c-000d3a8e1b7c'>
+        </div>
+        <script
+            src='https://cxppusa1formui01cdnsa01-endpoint.azureedge.net/global/FormLoader/FormLoader.bundle.js'>
+        </script>
+    </div>
+</div>
+@if (currentPage > 0 && currentPage <= numPages) // current page within bounds
+{
+    <nav id="page-nav" aria-label="Page navigation">
+    <ul class="pagination justify-content-center col-md-9">
+        @{
+            int pagesAroundCurrent = 2;
+        }
+
+        @if (currentPage - pagesAroundCurrent > 1)
+        {
+            <li class="page-item">
+                <a class="page-link" href="/home/index/1">1</a>
+            </li>
+        }
+
+        @if (currentPage - pagesAroundCurrent > 2) // there is space between 1 and currentPage - pagesAroundCurrent
+        {
+            <li>
+                <p>...</p>
+            </li>
+        }
+
+        @for (int i = pagesAroundCurrent; i > 0; i--) // pages left of current page
+        {
+            int pageNumber = currentPage - i;
+            if (pageNumber > 0)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/home/index/@pageNumber">@pageNumber</a>
+                </li>
+            }
+        }
+
+        @* current page *@
+        <li class="page-item">
+            <a class="page-link current-page" href="/home/index/@currentPage">@currentPage</a>
+        </li>
+
+        @for (int i = 1; i <= pagesAroundCurrent; i++) // pages right of current page
+        {
+            int pageNumber = currentPage + i;
+            if (pageNumber <= numPages)
+            {
+                <li class="page-item">
+                    <a class="page-link" href="/home/index/@pageNumber">@pageNumber</a>
+                </li>
+            }
+        }
+
+        @if (currentPage + pagesAroundCurrent < numPages - 1) // if there is space between last page and currentPage + pagesAroundCurrent
+        {
+            <li>
+                <p>...</p>
+            </li>
+        }
+
+        @if (currentPage + pagesAroundCurrent < numPages)
+        {
+            <li class="page-item">
+                <a class="page-link" href="/home/index/@numPages">@numPages</a>
+            </li>
+        }
+
+    </ul>
+    </nav>
+}
