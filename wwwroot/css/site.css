@@ -91,16 +91,6 @@ footer {
 
 /* Global */
 
-h3, h4, h5, h6 {
-  color: #c48e65;
-}
-
-h2 {
-  color: #c48e65;
-  font-size: 17px;
-  font-weight: 700;
-}
-
 .newsletter-form div,
 .newsletter-form table, 
 .newsletter-form form {
@@ -124,12 +114,24 @@ h2 {
   border: thin solid #eee;
 }
 
+#post-previews h1,
+#post-previews h2,
+#post-previews h3,
+#post-previews h4,
+#post-previews h5,
+#post-previews h6 {
+  color: #c48e65;
+  font-size: 17px;
+  font-weight: 700;
+}
+
 .post-preview-content {
   padding: 16px;
 }
 
 .top-preview {
-  height: 485px; overflow: hidden;
+  height: 485px; 
+  overflow: hidden;
 }
 
 .small-preview {
@@ -267,6 +269,15 @@ h2 {
   margin: 8px 0;
 }
 
+#post-column h1,
+#post-column h2,
+#post-column h3, 
+#post-column h4,
+#post-column h5,
+#post-column h6 {
+  color: #c48e65
+}
+
 #date-container {
   color: #333;
   background-color: #f1f3f6;
@@ -287,7 +298,12 @@ h2 {
   max-width: 100%;
 }
 
-#post-body h2 {
+#post-body h1,
+#post-body h2,
+#post-body h3, 
+#post-body h4,
+#post-body h5,
+#post-body h6 {
   font-size: 17px;
 }
 
