@@ -122,6 +122,9 @@ h2 {
 
 .post-preview {
   border: thin solid #eee;
+}
+
+.post-preview-content {
   padding: 16px;
 }
 
@@ -133,6 +136,22 @@ h2 {
   max-width: calc(33.3% - 11px);
   height: 500px;
   overflow: hidden;
+}
+
+.preview-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 -1.5rem;
+}
+
+.preview-image-container-big {
+  max-height: 150px;
+}
+
+.preview-image-container-small {
+  max-height: 150px; 
 }
 
 .preview-row {
@@ -165,7 +184,8 @@ h2 {
 
 .post-body-preview {
   margin-top: 8px;
-  height: 384px; 
+  /* height: 384px;  */
+  height: 229px;
   overflow: hidden;
 }
 
@@ -225,8 +245,19 @@ h2 {
   }
 
   .post-body-preview {
-    height: 339px; 
+    /* height: 339px;  */
+    height: 189px;
     overflow: hidden;
+  }
+}
+
+@media screen and (width > 768px) {
+  .preview-image-container-big{
+    max-height: 300px;
+  }
+
+  .post-body-preview-top {
+    max-height: 79px;
   }
 }
 

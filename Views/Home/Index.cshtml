@@ -23,31 +23,42 @@
             var firstPost = postList[0];
 
             <div class="post-preview top-preview">
-                <h2 class="ellipsis-one-line">@Html.ActionLink(firstPost.Title, "Posts", "Home", new {id = firstPost.Slug},
-                new
-                { @class="preview-header top-preview-header"})</h2>
-                <div class="post-body-preview">
-                    <contentful-rich-text document="@firstPost.Body"></contentful-rich-text>
+                <div class="preview-image-container preview-image-container-big">
+                    <contentful-image url="@firstPost.MainImage.File.Url" />
+                </div>  
+                <div class="post-preview-content">
+                    <h2 class="ellipsis-one-line">@Html.ActionLink(firstPost.Title, "Posts", "Home", new {id =
+                    firstPost.Slug},
+                    new
+                    { @class="preview-header top-preview-header"})</h2>
+                    <div class="post-body-preview post-body-preview-top">
+                        <contentful-rich-text document="@firstPost.Body"></contentful-rich-text>
+                    </div>
+                    <div class="read-more-container">
+                        <a>@Html.ActionLink("Read more ...", "Posts", "Home", new {id = firstPost.Slug}, new {
+                        @class="read-more-text"})</a>
+                    </div>
                 </div>
-                <div class="read-more-container">
-                    <a>@Html.ActionLink("Read more ...", "Posts", "Home", new {id = firstPost.Slug}, new {
-                    @class="read-more-text"})</a>
-                </div>
-
             </div>
             <div class="row row-cols-3 preview-row">
                 @for (int i = 1; i < postList.Length; i++)
                 {
                     var currentPost = postList[i];
                     <div class="col post-preview small-preview">
-                        <h2 class="ellipsis-one-line">@Html.ActionLink(currentPost.Title, "Posts", "Home", new {id =
-                    currentPost.Slug}, new {@class="preview-header"})</h2>
-                        <div class="post-body-preview">
-                            <contentful-rich-text document="@currentPost.Body"></contentful-rich-text>
+                        <div class="preview-image-container preview-image-container-small">
+                            <contentful-image url="@currentPost.MainImage.File.Url" />
                         </div>
-                        <div class="read-more-container">
-                            <a>@Html.ActionLink("Read more ...", "Posts", "Home", new {id = currentPost.Slug}, new {
-                        @class="read-more-text"})</a>
+                        <div class="post-preview-content">
+                            <h2 class="ellipsis-one-line">@Html.ActionLink(currentPost.Title, "Posts", "Home", new
+                        {id =
+                        currentPost.Slug}, new {@class="preview-header"})</h2>
+                            <div class=" post-body-preview">
+                                <contentful-rich-text document="@currentPost.Body"></contentful-rich-text>
+                            </div>
+                            <div class="read-more-container">
+                                <a>@Html.ActionLink("Read more ...", "Posts", "Home", new {id = currentPost.Slug}, new {
+                            @class="read-more-text"})</a>
+                            </div>
                         </div>
                     </div>
                 }
