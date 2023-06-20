@@ -23,6 +23,44 @@ body {
 
 /* My Styles */
 
+/* Head Nav */
+
+#head-nav-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#head-nav-name {
+  font-family: 'Playfair Display', Arial;
+  line-height: 1;
+  margin-right: 8px;
+}
+
+#logo-divider {
+  border-left: 1px solid black;
+  margin-top: 2px;
+  margin-right: 8px;
+  height: 2.25em;
+}
+
+#tagline {
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 300;
+}
+
+@media screen and (width > 768px) {
+  #head-nav-container {
+    padding: 16px 62.5px;
+  }
+
+  #head-nav-links {
+    font-weight: 500;
+    justify-content: flex-end;
+  }
+}
+
 /* Global */
 
 h3, h4, h5, h6 {
