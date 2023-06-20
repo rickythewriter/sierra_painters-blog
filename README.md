@@ -26,8 +26,6 @@ Uses Contentful API's (Content Delivery API, Images API) to populate views, such
 
 ![post](https://github.com/rickythewriter/sierra_painters-blog/blob/master/docs/images/post-sample.png?raw=true)
 
-*Sample post* 
-
 ### Microsoft Dynamics 365 Marketing
 
 Integrated newsletter form to capture leads for mailing list.
