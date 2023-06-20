@@ -271,6 +271,13 @@ h2 {
   font-size: 14px;
 }
 
+#date-container {
+  color: #333;
+  background-color: #f1f3f6;
+  width: 100%;
+  padding: 4px 8px;
+}
+
 #post-title {
   font-size: 22px;
   font-weight: 700;
