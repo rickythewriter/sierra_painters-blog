@@ -263,6 +263,10 @@ h2 {
 
 /* Post */
 
+#post-column * {
+  margin: 8px 0;
+}
+
 #post-title {
   font-size: 22px;
   font-weight: 700;
