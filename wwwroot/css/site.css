@@ -267,10 +267,6 @@ h2 {
   margin: 8px 0;
 }
 
-#post-column p {
-  font-size: 14px;
-}
-
 #date-container {
   color: #333;
   background-color: #f1f3f6;
@@ -293,6 +289,10 @@ h2 {
 
 #post-body h2 {
   font-size: 17px;
+}
+
+#post-body p {
+  font-size: 14px;
 }
 
 #post-body img {
