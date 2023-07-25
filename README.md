@@ -10,8 +10,8 @@ This is a sample marketing blog that uses the Contentful API to populate its pos
 
 ## Technologies Used
 
-- ASP.NET MVC
-- Contentful
+- ASP.NET Core MVC
+- Contentful CMS
 - Microsoft Dynamics 365 Marketing
 - C#
 - HTML, CSS
