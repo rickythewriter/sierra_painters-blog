@@ -1,7 +1,5 @@
 # Sierra Painters Blog
 
-Website: [https://sierrapainters.azurewebsites.net/](https://sierrapainters.azurewebsites.net/)
-
 ![home](https://github.com/rickythewriter/sierra_painters-blog/blob/master/docs/images/home.png?raw=true)
 
 ## What is the Sierra Painters Blog?
